@@ -37,9 +37,3 @@ jobs:
           host: ${{ secrets.EC2_HOST }} 
           username: ${{ secrets.EC2_USERNAME }} 
           key: ${{ secrets.EC2_SSH_KEY }} 
-          script: |
-            cd /home/ec2-user/Nest-AWS
-            git pull origin main
-            npm install
-            npm run start
-            pm2 restart Nest-AWS || pm2 start dist/main.js --name "Nest-AWS"
